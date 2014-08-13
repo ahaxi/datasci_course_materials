@@ -28,10 +28,11 @@ def main():
 		if tweetDict.has_key(u'text'):
 			tscore = 0
 			contents = tweetDict['text'].strip().split()
-			print contents
+#			print contents
 			for content in contents:
 				if scores.has_key(content):
 					tscore += scores[content]
+#				Added for Assignment 3
 				else:
 					wbuffer.add(content)
 			for w in wbuffer:
@@ -40,6 +41,7 @@ def main():
 					unknownWords[w][1] += 1
 				else:
 					unknownWords.update({w:[tscore, 1]})
+#		Problem 2 Commit
 #			print tscore				
 #		else:
 #			print str(0)
