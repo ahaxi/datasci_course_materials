@@ -28,6 +28,7 @@ def main():
 		if tweetDict.has_key(u'text'):
 			tscore = 0
 			contents = tweetDict['text'].strip().split()
+			print contents
 			for content in contents:
 				if scores.has_key(content):
 					tscore += scores[content]
@@ -43,7 +44,10 @@ def main():
 #		else:
 #			print str(0)
 	for u in unknownWords:
-		print u, float(round(unknownWords[u][0]/unknownWords[u][1], 2))
+		unknownWords[u].append(unknownWords[u][0]/float(unknownWords[u][1]))
+	for u in unknownWords:
+		if u.strip() != '':
+			print u + " " + str(unknownWords[u][2])
 
 if __name__ == '__main__':
     main()
